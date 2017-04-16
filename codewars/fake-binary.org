@@ -1,0 +1,39 @@
+#+Title: Fake binary
+#+Description: Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
+:Fundamentals:Strings:Arrays:JS:
+        
+* My version:  
+      
+#+BEGIN_SRC js
+    function fakeBin(str){
+        var inc = 0;
+        var newString = '';
+        while ( inc < str.length){
+            if (+str.charAt(inc) < 5){
+                newString += '0' 
+            } else {
+                newString += '1'
+            }
+            inc++;
+        }
+        return newString;
+    }
+#+END_SRC
+
+* Best Practices:
+
+#+BEGIN_SRC js
+    function fakeBin(x) {
+        return x.split('').map(n => n < 5 ? 0 : 1).join('');
+    }
+#+END_SRC
+
+#+BEGIN_SRC js
+    const fakeBin=x=>[...x].reduce((a,b)=>a+(~~(+b/5)),"")
+#+END_SRC
+
+#+BEGIN_SRC js
+    function fakeBin(x) {
+        return x.replace(/\d/g, n => "0000011111"[n])
+    }
+#+END_SRC
